@@ -8,6 +8,7 @@ class WigsController extends Controller
 
     public function index()
     {
-        return "Hello from Wigs Controller";
+        $page = "Hello from Wigs Controller";
+        return view('Pages.wigs', compact('page'));
     }
 }

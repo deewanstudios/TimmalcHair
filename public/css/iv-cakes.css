@@ -1,0 +1,108 @@
+/* body {
+    color: #ffffff;
+} */
+
+.rd-navbar-default.rd-navbar-static .rd-navbar-nav>li>a,
+.rd-navbar-floated.rd-navbar-static .rd-navbar-nav>li>a,
+.rd-navbar-top-panel.rd-navbar-static .rd-navbar-nav>li>a {
+    font-family: fira-sans-condensed-2, sans-serif;
+    font-style: normal;
+    font-size: 105%;
+}
+
+.rd-navbar-default.rd-navbar-static .rd-navbar-nav>li>a:after,
+.rd-navbar-floated.rd-navbar-static .rd-navbar-nav>li>a:after,
+.rd-navbar-top-panel.rd-navbar-static .rd-navbar-nav>li>a:after {
+    background: -moz-linear-gradient(90deg, #F29999 0%, #D2ECD5 100%);
+    background: -webkit-linear-gradient(90deg, #F29999 0%, #D2ECD5 100%);
+    background: -o-linear-gradient(90deg, #F29999 0%, #D2ECD5 100%);
+    background: -ms-linear-gradient(90deg, #F29999 0%, #D2ECD5 100%);
+    background: linear-gradient(90deg, #F29999 0%, #D2ECD5 100%);
+}
+
+.rd-navbar-default.rd-navbar-static .rd-navbar-menu-wrap {
+    margin-top: 8%;
+}
+
+.jumbotron {
+    background-color: rgba(102, 214, 185, .8);
+}
+
+.rd-navbar-default.rd-navbar-static .rd-navbar-dropdown {
+
+    top: 104%;
+    /* border-top: 1px solid red; */
+    border-top: unset;
+}
+
+.rd-navbar-default.rd-navbar-light.rd-navbar-static .rd-navbar-dropdown li {
+    /* background-color: red; */
+}
+
+main {
+    min-height: 70vh;
+}
+
+/* Adding important to override style that sets the last HTML child element on the page to have a bottom margin of 0 */
+.offset-bottom-66 {
+    margin-bottom: 66px !important;
+}
+
+.offset-bottom-24 {
+    margin-bottom: 24px;
+}
+
+.offset-bottom-33 {
+    margin-bottom: 33px !important;
+}
+
+.offset-bottom-unset {
+    margin-bottom: unset;
+}
+
+.select2-container--bootstrap .select2-results__option--highlighted[aria-selected] {
+    background-color: #F29999;
+}
+
+#address-info {}
+
+.gm-style-iw-d {
+    width: 200px;
+    text-align: left;
+    background-color: #F29999;
+    /* scroll-behavior: unset; */
+    overflow: unset !important;
+    padding-left: .65em;
+}
+
+
+.product-list:hover:before,
+.product-grid:hover:before {
+    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.product-list:before,
+.product-grid:before {
+    border: none;
+}
+
+.featured-thumbnail {
+    height: 300px;
+    background: #f5f5f5;
+}
+
+.featured-thumbnail img {
+    height: 100%;
+}
+
+.product-image {
+    height: 200px;
+}
+
+.product-image img {
+    height: 100%;
+}
+
+.color-chocolate {
+    background-color: #40211E;
+}
