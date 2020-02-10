@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Colour;
+use App\Length;
+use App\Price;
 use App\Product;
+use App\Texture;
 
 class WigsController extends Controller
 {
@@ -13,9 +16,14 @@ class WigsController extends Controller
     {
 
         $products = Product::with(['category', 'colour', 'texture', 'length', 'price'])->get();
+        $colours  = Colour::all();
+        $prices   = Price::all();
+        $lengths  = Length::all();
+        $textures = Texture::all();
         // dd($products);
+        // dd($textures);
         $page = "Hello from Wigs Controller";
-        return view('Pages.wigs', compact('page', 'products'));
+        return view('pages.wigs', compact('page', 'products', 'colours', 'textures', 'lengths'));
     }
 
     public function showCategory()
@@ -28,4 +36,5 @@ class WigsController extends Controller
     {
         return 'Hello World from single product!';
     }
+
 }

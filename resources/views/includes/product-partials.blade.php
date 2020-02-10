@@ -1,9 +1,9 @@
+{{-- @dump($textures) --}}
 <section>
   <div class="shell">
     {{-- <h1>Product Grids Type 1</h1>
     <hr class="divider bg-mantis"> --}}
     <div class="range range-xs-center">
-      {{-- @dump($products) --}}
       @forelse ($products as $product)
       <div class="cell-xs-6 cell-sm-5 cell-md-3">
         <!-- Product-->
@@ -35,13 +35,53 @@
               ">
             {{-- .'/'.$product->texture->texture --}}
             {{-- '/'.$product->productPath() --}}
-            {{ ucwords($product->category->category.' '.$product->texture->texture) }}
+            {{ ucwords($product->category->category) }}
+            <span class="product-texture">
+              {{ ucwords($product->texture->texture) }}
+            </span>
           </a>
           </h5>
           <!-- Product Brand-->
           <p class="product-brand text-italic text-dark">
-            {{ Str::singular(ucwords($product->category->cake_category)) }}
+            {{ Str::singular(ucwords($product->category->category)) }}
           </p>
+
+          <label>Select Wig Texture</label>
+          <div class="cell-sm-7 cell-md-4">
+            <div class="form-group">
+              <select name="textures" class="form-control select-filter" data-placeholder="Select an option">
+                <!-- data-minimum-results-for-search="Infinity" -->
+                @foreach ($textures as $texture)
+                <option>{{$texture->texture}}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+
+          <div class="cell-sm-7 cell-md-4">
+            <div class="form-group">
+              <label>Select Colour</label>
+              <select name="colours" class="form-control select-filter" data-placeholder="Select an option">
+                <!-- data-minimum-results-for-search="Infinity" -->
+                @foreach ($colours as $colour)
+                <option>{{$colour->colour}}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+
+          <div class="cell-sm-7 cell-md-4">
+            <div class="form-group">
+              <label>Select Length</label>
+              <select name="lengths" class="form-control select-filter" data-placeholder="Select an option">
+                <!-- data-minimum-results-for-search="Infinity" -->
+                @foreach ($lengths as $lenght)
+                <option>{{$lenght->length}}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+
           <!-- Product price-->
           <div class="product-price text-bold">
             <span class="product-price-new">

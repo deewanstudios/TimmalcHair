@@ -4,7 +4,7 @@
 {{-- @include('includes.slider') --}}
 {{-- @endsection --}}
 
-@dump($products)
+{{-- @dump($products) --}}
 @section('content')
 <div class="jumbotron ">
     <h1 class="display-1">
