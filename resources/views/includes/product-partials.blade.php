@@ -1,4 +1,5 @@
 {{-- @dump($textures) --}}
+<p id="p">selectedIndex: 0</p>
 <section>
   <div class="shell">
     {{-- <h1>Product Grids Type 1</h1>
@@ -39,6 +40,7 @@
             <span class="product-texture">
               {{ ucwords($product->texture->texture) }}
             </span>
+            <span>{{'weave'}}</span>
           </a>
           </h5>
           <!-- Product Brand-->
@@ -49,10 +51,16 @@
           <label>Select Wig Texture</label>
           <div class="cell-sm-7 cell-md-4">
             <div class="form-group">
-              <select name="textures" class="form-control select-filter" data-placeholder="Select an option">
+              <select id="textures" name="textures" class="form-control select-filter textures"
+                data-placeholder="Select an option">
                 <!-- data-minimum-results-for-search="Infinity" -->
                 @foreach ($textures as $texture)
-                <option>{{$texture->texture}}</option>
+                <option @if ($loop->first)
+                  selected
+                  {{-- @dump($loop->index) --}}
+                  @endif>
+                  {{$texture->texture}}
+                </option>
                 @endforeach
               </select>
             </div>
@@ -73,10 +81,12 @@
           <div class="cell-sm-7 cell-md-4">
             <div class="form-group">
               <label>Select Length</label>
-              <select name="lengths" class="form-control select-filter" data-placeholder="Select an option">
+              <select name="lengths" class="form-control select-filter lengths" data-placeholder="Select an option">
                 <!-- data-minimum-results-for-search="Infinity" -->
                 @foreach ($lengths as $lenght)
-                <option>{{$lenght->length}}</option>
+                <option>
+                  {{$lenght->length}}
+                </option>
                 @endforeach
               </select>
             </div>
