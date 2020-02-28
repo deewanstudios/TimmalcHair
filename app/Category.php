@@ -16,4 +16,14 @@ class Category extends Model
         return str_replace(' ', '-', $this->category);
     }
 
+    public function getRouteKeyName()
+    {
+        return 'category';
+    }
+
+    public function resolveRouteBinding($value)
+    {
+        return $this->where('category', str_replace('-', ' ', $value))->firstOrFail();
+    }
+
 }

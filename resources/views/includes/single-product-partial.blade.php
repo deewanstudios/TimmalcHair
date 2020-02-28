@@ -1,4 +1,5 @@
 <div class="shell">
+    @foreach ($product as $product)
     <div class="product product-single">
         <div class="range">
             <div class="cell-sm-8 cell-md-6">
@@ -22,104 +23,75 @@
                                 height="84"></li>
                         @endif
                         @endforeach
-                        {{-- <li class="active" data-large-image="images/shop/product-01-570x760.png"><img
-                                class="img-responsive" src="images/shop/product-01-84x84.png" alt="" width="84"
-                                height="84"></li>
-                        <li data-large-image="images/shop/product-01-570x760-2.png"><img class="img-responsive"
-                                src="images/shop/product-01-84x84-2.png" alt="" width="84" height="84"></li>
-                        <li data-large-image="images/shop/product-01-570x760-3.png"><img class="img-responsive"
-                                src="images/shop/product-01-84x84-3.png" alt="" width="84" height="84"></li> --}}
                     </ul>
                 </div>
             </div>
             <div class="cell-sm-12 cell-md-6 text-left offset-top-41 offset-md-top-0">
                 <p class="product-brand text-italic text-dark">
-                    {{Str::singular(ucwords($product->category->cake_category))}}
+                    {{Str::singular(ucwords($product->category->category))}}
                 </p>
                 <!-- Product Title-->
                 <h1 class="product-title offset-top-0"><a href="shop-single-product-no-sidebar.html">
-                        {{ucwords($product->name)}}
+
+                        {{ucwords($product->category->category ." ")}}
+                        <span class="product-texture">
+                            {{ucwords($product->texture->texture)}}
+                        </span>
+                        <span>{{ucwords('weave')}}</span>
+
                     </a>
                 </h1>
-                <!-- Product Rating-->
-                {{-- <div class="product-rating offset-top-20"><span class="mdi mdi-star"></span><span
-                        class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span
-                        class="mdi mdi-star-half"></span><span class="mdi mdi-star-outline"></span><span
-                        class="product-review-count text-dark">4 customer reviews</span></div> --}}
-                <!-- Classic Accordion-->
-                <div class="responsive-tabs responsive-tabs-classic" data-type="accordion">
-                    <ul class="resp-tabs-list tabs-group-default" data-group="tabs-group-default">
-                        <li>Description</li>
-                        <li>Size &amp; Serving</li>
-                        <li>Delivery &amp; Returns</li>
-                    </ul>
-                    <div class="resp-tabs-container tabs-group-default" data-group="tabs-group-default">
-                        <div>
-                            {{-- Fashion has always been so temporary and uncertain. You canâ€™t keep up with it. This
-                            social phenomenon is very whimsical, thus we as the consumers always try to stay in touch
-                            with all the latest fashion tendencies. --}}
-                            {{$product->description->product_description}}
-                        </div>
-                        <div>
-                            <p>Size: {{ucwords($product->size->size_name) ." (". $product->size->dimension .'")'}}</p>
-                            <p>Layers: {{$product->size->layers}}</p>
-                            <p>Servings: {{$product->size->servings}}</p>
-                            <p>Composition: This cake has a {{$product->sponge->sponge}} sponge, filled with
-                                {{$product->filling->flavour_name}}</p>
-                            {{-- 17.25" bust <br> 14" shoulder to shoulder <br> 32.25" shoulder to hem <br> Measurements
-                            taken from size small <br> Model wears size small. Model is 5'9 <br> This dress fits true to
-                            size --}}
-                        </div>
-                        <div>We deliver our goods worldwide. No matter where you live, your order will be shipped in
-                            time and delivered right to your door or to any other location you have stated. The packages
-                            are handled with utmost care, so the ordered products will be handed to you safe and sound,
-                            just like you expect them to be.</div>
+                <label>Select Wig Texture</label>
+                <div class="cell-sm-7 cell-md-4">
+                    <div class="form-group">
+                        <select id="textures" name="textures" class="form-control select-filter textures"
+                            data-placeholder="Select an option">
+                            <!-- data-minimum-results-for-search="Infinity" -->
+                            @foreach ($textures as $texture)
+                            <option @if ($loop->first)
+                                selected
+                                @endif>
+                                {{$texture->texture}}
+                            </option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
-                <div class="product-radio-wrap product-radio-color offset-top-34">
-                    <h5 class="product-radio-title" style="min-width: 130px;">Flavours</h5>
-                    <div class="form-group offset-top-10 offset-xs-top-0">
-                        <label class="radio-inline">
-                            <input name="input-group-radio-color" value="color-{{$product->sponge->sponge}}"
-                                type="radio"><span class="product-radio color-{{$product->sponge->sponge}}"
-                                {{-- style="background-color: #1d2f61;" --}}>
-                            </span>
-                        </label>
-                        <label class="radio-inline">
-                            <input name="input-group-radio-color" value="color-2" type="radio"><span
-                                class="product-radio" style="background-color: #9291a0;"></span>
-                        </label>
-                        <label class="radio-inline">
-                            <input name="input-group-radio-color" value="color-3" type="radio"><span
-                                class="product-radio" style="background-color: #f3f1f2;"></span>
-                        </label>
+
+                <div class="cell-sm-7 cell-md-4">
+                    <div class="form-group">
+                        <label>Select Length</label>
+                        <select name="lengths" class="form-control select-filter lengths"
+                            data-placeholder="Select an option">
+                            <!-- data-minimum-results-for-search="Infinity" -->
+                            @foreach ($lengths as $lenght)
+                            <option>
+                                {{$lenght->length}}
+                            </option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
-                <div class="product-radio-wrap offset-top-24">
-                    <h5 class="product-radio-title" style="min-width: 130px;">Select Size</h5>
-                    <div class="form-group offset-top-10 offset-xs-top-0">
-                        <label class="radio-inline">
-                            <input name="input-group-radio-size" value="size-1" type="radio"><span
-                                class="small product-radio">XS</span>
-                        </label>
-                        <label class="radio-inline">
-                            <input name="input-group-radio-size" value="size-2" type="radio"><span
-                                class="small product-radio">S</span>
-                        </label>
-                        <label class="radio-inline">
-                            <input name="input-group-radio-size" value="size-3" type="radio"><span
-                                class="small product-radio">M</span>
-                        </label>
-                        <label class="radio-inline">
-                            <input name="input-group-radio-size" value="size-4" type="radio"><span
-                                class="small product-radio">L</span>
-                        </label>
+
+                <div class="cell-sm-7 cell-md-4">
+                    <div class="form-group">
+                        <label>Select Colour</label>
+                        <select name="colours" class="form-control select-filter" data-placeholder="Select an option">
+                            <!-- data-minimum-results-for-search="Infinity" -->
+                            @foreach ($colours as $colour)
+                            <option>{{$colour->colour}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
+
                 <!-- Product price-->
                 <div class="product-price text-bold h1 offset-top-34">
-                    <span class="product-price-new">
-                        {{'£'.$product->price->price}}
+                    <span id="currency" class="product-price-new">
+                        {{'£'}}
+                    </span>
+                    <span id="price" class="product-price-new">
+                        {{$product->price->price}}
                     </span>
                     {{-- <span class="product-price-old text-dark small">
                         {{'£'.$product->price->price}}
@@ -131,9 +103,12 @@
                         <input class="form-control input-sm form-control-impressed" type="number" data-zeros="true"
                             value="1" min="1" max="20">
                     </div>
+
                     <!-- Product Add To cart-->
-                    <a class="btn btn-sm btn-primary btn-icon btn-icon-left product-btn offset-top-20 offset-xs-top-0"
-                        href="shop-cart.html"><span class="icon mdi mdi-cart-outline"></span>Add to Cart</a>
+                    <div>
+                        <a class="btn btn-sm btn-primary btn-icon btn-icon-left product-btn offset-top-20 offset-xs-top-0"
+                            href="shop-cart.html"><span class="icon mdi mdi-cart-outline"></span>Add to Cart</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -400,4 +375,6 @@
             </div>
         </div>
     </div> --}}
+    @endforeach
+
 </div>

@@ -16,4 +16,14 @@ class Texture extends Model
         return str_replace(' ', '-', $this->texture);
     }
 
+    public function getRouteKeyName()
+    {
+        return 'texture';
+    }
+
+    public function resolveRouteBinding($value)
+    {
+        return $this->where('texture', str_replace('-', ' ', $value))->firstOrFail();
+    }
+
 }

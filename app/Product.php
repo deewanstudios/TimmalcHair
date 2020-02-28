@@ -25,6 +25,11 @@ class Product extends Model
         return $this->hasOne(Colour::class, 'id', 'colour_id');
 
     }
+    /*  public function colours()
+    {
+    return $this->belongsToMany(Colour::class);
+
+    }  */
 
     public function texture()
     {
@@ -42,6 +47,16 @@ class Product extends Model
     {
         return $this->hasOne(Price::class, 'id', 'price_id');
 
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id');
+    }
+
+    public function image()
+    {
+        return $this->hasOne(ProductImage::class, 'product_id');
     }
 
     /*  public function productPath()

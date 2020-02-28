@@ -11,7 +11,8 @@
                 @include('includes.header')
                 @yield('slider')
             </header>
-            <main class="page-content section-98 section-sm-110">
+            <main class="page-content">
+                {{-- section-98 section-sm-110 --}}
                 {{-- id="main" --}}
                 @yield('content')
             </main>

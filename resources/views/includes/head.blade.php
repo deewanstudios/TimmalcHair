@@ -4,10 +4,7 @@
 
 <title>{{ config('app.name', 'Deewanstudios') }}</title>
 
-  <!-- Styles -->
-  <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
-  <link href="{{ asset('css/iv-cakes.css') }}" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://use.typekit.net/ebp4bmr.css">
-
-
-
+<!-- Styles -->
+<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.typekit.net/ebp4bmr.css">
