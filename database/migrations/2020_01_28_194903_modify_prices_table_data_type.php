@@ -15,7 +15,7 @@ class ModifyPricesTableDataType extends Migration
     {
         Schema::table('prices', function (Blueprint $table) {
             //
-            $table->decimal('price', 8, 2)->change();
+            $table->decimal('price', 8, 2)->change()->unsigned()->nullable()->charset(null);
         });
     }
 
