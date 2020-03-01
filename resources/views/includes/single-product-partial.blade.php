@@ -41,9 +41,9 @@
 
                     </a>
                 </h1>
-                <label>Select Wig Texture</label>
                 <div class="cell-sm-7 cell-md-4">
                     <div class="form-group">
+                        <label>Select Wig Texture</label>
                         <select id="textures" name="textures" class="form-control select-filter textures"
                             data-placeholder="Select an option">
                             <!-- data-minimum-results-for-search="Infinity" -->
@@ -51,7 +51,7 @@
                             <option @if ($loop->first)
                                 selected
                                 @endif>
-                                {{$texture->texture}}
+                                {{ucwords($texture->texture)}}
                             </option>
                             @endforeach
                         </select>
@@ -64,55 +64,55 @@
                         <select name="lengths" class="form-control select-filter lengths"
                             data-placeholder="Select an option">
                             <!-- data-minimum-results-for-search="Infinity" -->
-                            @foreach ($lengths as $lenght)
-                            <option>
-                                {{$lenght->length}}
+                            @foreach ($lengths as $length)
+                            <option value="{{$length->id}}">
+                                {{$length->length . " inches"}}
                             </option>
-                            @endforeach
-                        </select>
-                    </div>
+                    @endforeach
+                    </select>
                 </div>
+            </div>
 
-                <div class="cell-sm-7 cell-md-4">
-                    <div class="form-group">
-                        <label>Select Colour</label>
-                        <select name="colours" class="form-control select-filter" data-placeholder="Select an option">
-                            <!-- data-minimum-results-for-search="Infinity" -->
-                            @foreach ($colours as $colour)
-                            <option>{{$colour->colour}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+            <div class="cell-sm-7 cell-md-4">
+                <div class="form-group">
+                    <label>Select Colour</label>
+                    <select name="colours" class="form-control select-filter" data-placeholder="Select an option">
+                        <!-- data-minimum-results-for-search="Infinity" -->
+                        @foreach ($colours as $colour)
+                        <option>{{$colour->colour}}</option>
+                        @endforeach
+                    </select>
                 </div>
+            </div>
 
-                <!-- Product price-->
-                <div class="product-price text-bold h1 offset-top-34">
-                    <span id="currency" class="product-price-new">
-                        {{'£'}}
-                    </span>
-                    <span id="price" class="product-price-new">
-                        {{$product->price->price}}
-                    </span>
-                    {{-- <span class="product-price-old text-dark small">
+            <!-- Product price-->
+            <div class="product-price text-bold h1 offset-top-34">
+                <span id="currency" class="product-price-new">
+                    {{'£'}}
+                </span>
+                <span id="price" class="product-price-new">
+                    {{$product->price->price}}
+                </span>
+                {{-- <span class="product-price-old text-dark small">
                         {{'£'.$product->price->price}}
-                    </span> --}}
+                </span> --}}
+            </div>
+            <div class="offset-top-34">
+                <div class="form-group product-number">
+                    <label class="text-dark">Quantity:</label>
+                    <input class="form-control input-sm form-control-impressed" type="number" data-zeros="true"
+                        value="1" min="1" max="20">
                 </div>
-                <div class="offset-top-34">
-                    <div class="form-group product-number">
-                        <label class="text-dark">Quantity:</label>
-                        <input class="form-control input-sm form-control-impressed" type="number" data-zeros="true"
-                            value="1" min="1" max="20">
-                    </div>
 
-                    <!-- Product Add To cart-->
-                    <div>
-                        <a class="btn btn-sm btn-primary btn-icon btn-icon-left product-btn offset-top-20 offset-xs-top-0"
-                            href="shop-cart.html"><span class="icon mdi mdi-cart-outline"></span>Add to Cart</a>
-                    </div>
+                <!-- Product Add To cart-->
+                <div>
+                    <a class="btn btn-sm btn-primary btn-icon btn-icon-left product-btn offset-top-20 offset-xs-top-0"
+                        href="shop-cart.html"><span class="icon mdi mdi-cart-outline"></span>Add to Cart</a>
                 </div>
             </div>
         </div>
-        {{-- <div class="offset-top-66">
+    </div>
+    {{-- <div class="offset-top-66">
             <!-- Responsive-tabs-->
             <div class="responsive-tabs responsive-tabs-boxed" data-type="vertical">
                 <ul class="resp-tabs-list text-center tabs-group-default" data-group="tabs-group-default">
@@ -234,8 +234,8 @@
                 </div>
             </div>
         </div> --}}
-    </div>
-    {{-- <div class="offset-top-66">
+</div>
+{{-- <div class="offset-top-66">
         <h4 class="text-spacing-120 text-left text-uppercase text-bold">
             Related Products</h4>
         <hr class="bg-gray">
@@ -375,6 +375,6 @@
             </div>
         </div>
     </div> --}}
-    @endforeach
+@endforeach
 
 </div>

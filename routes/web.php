@@ -14,4 +14,5 @@ Route::get('/', 'HomeController@index');
 Route::get('/wigs', 'WigsController@index');
 Route::get('/wigs/{category}', 'WigsController@showCategory');
 Route::get('/wigs/{category}/{texture}', 'WigsController@showSingleProduct');
+Route::get('/get-price/{price_id}', 'WigsController@getPriceByLengthId');
 // /{colour}
