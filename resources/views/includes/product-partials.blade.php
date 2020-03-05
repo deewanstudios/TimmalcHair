@@ -15,7 +15,7 @@
               src="
               {{asset('images/products/'.$product->image["url"])}}.jpg" alt=""
               @else
-              src="src="https://via.placeholder.com" alt=""
+              src="https://via.placeholder.com/294" alt=""
               @endif
               />
             </a>

@@ -45,11 +45,32 @@ class WigsController extends Controller
         return 'Hello World from product category!';
     }
 
-    public function showSingleProduct(Category $category, Texture $texture)
+    public function showSingleProduct(Category $category, Texture $texture, $id, $product_id)
     {
+        // 'category', 'colour', 'length', 'texture',
+        /* 'image' => function ($query) {
+        $query->where('name', 'like', '%body%')}, */
         // Category $category, Texture $texture
-        $product = Product::with(['category', 'colour', 'length', 'texture', 'price', 'images'])
-            ->where('category_id', $category->id)
+        /* 'image' => function ($query) {
+        $query->where('url', 'like', '%$texture->texture%');
+        }, */
+        //  'images'
+        /*      $product = Product::with(['price', 'image'=>function($query, $texture){
+        $query->where('url' '=' $texture)
+        }
+        ]) */
+        $id      = Product::find($id);
+        $product = Product::with(
+            [
+                'image' => function ($query) {
+                    $query->where('id', $id)
+                        ->where('product_id', $product->id);
+                },
+                'price' => function ($query) {
+                    $query->min('price');
+                },
+            ]
+        )->where('category_id', $category->id)
             ->where('texture_id', $texture->id)
             ->get();
         $textures = Texture::all();
@@ -57,7 +78,7 @@ class WigsController extends Controller
         $colours  = Colour::all();
         // $price    = $this->getPriceByLengthId($product->price->length_id);
         // $price = $this->getPriceByLengthId(10);
-        // dd($product);
+        dd($product);
         // $page = 'Hello World from single product!';
         return view('pages.single-product', compact('product', 'textures', 'lengths', 'colours'));
     }
