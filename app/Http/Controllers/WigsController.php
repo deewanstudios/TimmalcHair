@@ -45,7 +45,7 @@ class WigsController extends Controller
         return 'Hello World from product category!';
     }
 
-    public function showSingleProduct(Category $category, Texture $texture, $id, $product_id)
+    public function showSingleProduct(Category $category, Texture $texture)
     {
         // 'category', 'colour', 'length', 'texture',
         /* 'image' => function ($query) {
@@ -59,12 +59,15 @@ class WigsController extends Controller
         $query->where('url' '=' $texture)
         }
         ]) */
-        $id      = Product::find($id);
+        // $id      = Product::find($id);
         $product = Product::with(
             [
+                // use ($texture)
                 'image' => function ($query) {
-                    $query->where('id', $id)
-                        ->where('product_id', $product->id);
+                    $query->where('url', 'like', '%body%');
+                    // $query->where('url', '=', $texture->texturePath())
+                    // ->where('product_id', $product->id)
+                    ;
                 },
                 'price' => function ($query) {
                     $query->min('price');
@@ -78,7 +81,7 @@ class WigsController extends Controller
         $colours  = Colour::all();
         // $price    = $this->getPriceByLengthId($product->price->length_id);
         // $price = $this->getPriceByLengthId(10);
-        dd($product);
+        // dd($texture->texturePath(), $product);
         // $page = 'Hello World from single product!';
         return view('pages.single-product', compact('product', 'textures', 'lengths', 'colours'));
     }

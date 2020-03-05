@@ -4,14 +4,14 @@
         <div class="range">
             <div class="cell-sm-8 cell-md-6">
                 <div class="product-image">
-                    @foreach ($product->images as $product_image)
+                    {{-- @foreach ($product->images as $product_image) --}}
                     {{-- @if ($loop->first) --}}
                     {{-- <div> --}}
                     <img class="img-responsive product-image-area"
-                        src="{{asset('images/products/'.$product_image->imagePath())}}.jpg" alt="" />
+                        src="{{asset('images/products/'.$product->image->imagePath())}}.jpg" alt="" />
                     {{-- </div> --}}
                     {{-- @endif --}}
-                    @endforeach
+                    {{-- @endforeach --}}
                     {{-- <ul class="product-thumbnails">
                         @foreach ($product->images as $product_image)
                         @if (count($product->images) > 1 )
