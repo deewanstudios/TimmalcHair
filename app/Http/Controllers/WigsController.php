@@ -14,10 +14,17 @@ class WigsController extends Controller
 
     public function index()
     {
+
+        // Category $category, Texture $texture
+
         /*      $products = Product::with([
         'category', 'colour', 'texture', 'length', 'price', 'images', 'image' => function ($query) {
         $query->where('name', 'like', '%body%');
         }])->get(); */
+
+        // use ($category)
+        // $query->where('url', 'like', '%$texture->texture%');
+        // dd($category);
         $products = Product::with(
             [
                 'image' => function ($query) {
