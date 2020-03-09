@@ -7,7 +7,7 @@
                     {{-- @foreach ($product->images as $product_image) --}}
                     {{-- @if ($loop->first) --}}
                     {{-- <div> --}}
-                    <img class="img-responsive product-image-area"
+                    <img id="product-image" class="img-responsive product-image-area"
                         src="{{asset('images/products/'.$product->image->imagePath())}}.jpg" alt="" />
                     {{-- </div> --}}
                     {{-- @endif --}}
@@ -30,14 +30,14 @@
                     {{Str::singular(ucwords($product->category->category))}}
                 </p>
                 <!-- Product Title-->
-                <h1 class="product-title offset-top-0"><a href="shop-single-product-no-sidebar.html">
-
-                        {{ucwords($product->category->category ." ")}}
+                <h1 class="product-title offset-top-0" id="product-name"><a href="shop-single-product-no-sidebar.html">
+                        <span id="cat">
+                            {{ucwords($product->category->category ." ")}}
+                        </span>
                         <span class="product-texture">
                             {{ucwords($product->texture->texture)}}
                         </span>
                         <span>{{ucwords('weave')}}</span>
-
                     </a>
                 </h1>
                 <div class="cell-sm-7 cell-md-4">

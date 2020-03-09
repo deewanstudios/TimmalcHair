@@ -396,13 +396,13 @@ $document.ready(function () {
 
             grecaptcha.render(
                 $capthcaItem.attr('id'), {
-                sitekey: $capthcaItem.attr('data-sitekey'),
-                size: $capthcaItem.attr('data-size') ? $capthcaItem.attr('data-size') : 'normal',
-                theme: $capthcaItem.attr('data-theme') ? $capthcaItem.attr('data-theme') : 'light',
-                callback: function (e) {
-                    $('.recaptcha').trigger('propertychange');
+                    sitekey: $capthcaItem.attr('data-sitekey'),
+                    size: $capthcaItem.attr('data-size') ? $capthcaItem.attr('data-size') : 'normal',
+                    theme: $capthcaItem.attr('data-theme') ? $capthcaItem.attr('data-theme') : 'light',
+                    callback: function (e) {
+                        $('.recaptcha').trigger('propertychange');
+                    }
                 }
-            }
             );
             $capthcaItem.after("<span class='form-validation'></span>");
         }
@@ -566,122 +566,122 @@ $document.ready(function () {
      */
     if (plugins.tilter.length) {
         var tiltSettings = [{},
-        {
-            movement: {
-                lines: {
-                    translation: {
-                        x: 40,
-                        y: 40,
-                        z: 0
+            {
+                movement: {
+                    lines: {
+                        translation: {
+                            x: 40,
+                            y: 40,
+                            z: 0
+                        },
+                        reverseAnimation: {
+                            duration: 1500,
+                            easing: 'easeOutElastic'
+                        }
                     },
-                    reverseAnimation: {
-                        duration: 1500,
-                        easing: 'easeOutElastic'
+                    caption: {
+                        translation: {
+                            x: 20,
+                            y: 20,
+                            z: 0
+                        },
+                        rotation: {
+                            x: 0,
+                            y: 0,
+                            z: -5
+                        },
+                        reverseAnimation: {
+                            duration: 1000,
+                            easing: 'easeOutExpo'
+                        }
+                    },
+                    overlay: {
+                        translation: {
+                            x: -30,
+                            y: -30,
+                            z: 0
+                        },
+                        rotation: {
+                            x: 0,
+                            y: 0,
+                            z: 3
+                        },
+                        reverseAnimation: {
+                            duration: 750,
+                            easing: 'easeOutExpo'
+                        }
+                    },
+                    shine: {
+                        translation: {
+                            x: 100,
+                            y: 100,
+                            z: 0
+                        },
+                        reverseAnimation: {
+                            duration: 750,
+                            easing: 'easeOutExpo'
+                        }
                     }
-                },
-                caption: {
-                    translation: {
-                        x: 20,
-                        y: 20,
-                        z: 0
+                }
+            },
+            {
+                movement: {
+                    lines: {
+                        translation: {
+                            x: 40,
+                            y: 40,
+                            z: 0
+                        },
+                        reverseAnimation: {
+                            duration: 1500,
+                            easing: 'easeOutElastic'
+                        }
                     },
-                    rotation: {
-                        x: 0,
-                        y: 0,
-                        z: -5
+                    caption: {
+                        translation: {
+                            x: 20,
+                            y: 20,
+                            z: 0
+                        },
+                        rotation: {
+                            x: 0,
+                            y: 0,
+                            z: -5
+                        },
+                        reverseAnimation: {
+                            duration: 1000,
+                            easing: 'easeOutExpo'
+                        }
                     },
-                    reverseAnimation: {
-                        duration: 1000,
-                        easing: 'easeOutExpo'
-                    }
-                },
-                overlay: {
-                    translation: {
-                        x: -30,
-                        y: -30,
-                        z: 0
+                    overlay: {
+                        translation: {
+                            x: -30,
+                            y: -30,
+                            z: 0
+                        },
+                        rotation: {
+                            x: 0,
+                            y: 0,
+                            z: 3
+                        },
+                        reverseAnimation: {
+                            duration: 750,
+                            easing: 'easeOutExpo'
+                        }
                     },
-                    rotation: {
-                        x: 0,
-                        y: 0,
-                        z: 3
-                    },
-                    reverseAnimation: {
-                        duration: 750,
-                        easing: 'easeOutExpo'
-                    }
-                },
-                shine: {
-                    translation: {
-                        x: 100,
-                        y: 100,
-                        z: 0
-                    },
-                    reverseAnimation: {
-                        duration: 750,
-                        easing: 'easeOutExpo'
+                    shine: {
+                        translation: {
+                            x: 100,
+                            y: 100,
+                            z: 0
+                        },
+                        reverseAnimation: {
+                            duration: 750,
+                            easing: 'easeOutExpo'
+                        }
                     }
                 }
             }
-        },
-        {
-            movement: {
-                lines: {
-                    translation: {
-                        x: 40,
-                        y: 40,
-                        z: 0
-                    },
-                    reverseAnimation: {
-                        duration: 1500,
-                        easing: 'easeOutElastic'
-                    }
-                },
-                caption: {
-                    translation: {
-                        x: 20,
-                        y: 20,
-                        z: 0
-                    },
-                    rotation: {
-                        x: 0,
-                        y: 0,
-                        z: -5
-                    },
-                    reverseAnimation: {
-                        duration: 1000,
-                        easing: 'easeOutExpo'
-                    }
-                },
-                overlay: {
-                    translation: {
-                        x: -30,
-                        y: -30,
-                        z: 0
-                    },
-                    rotation: {
-                        x: 0,
-                        y: 0,
-                        z: 3
-                    },
-                    reverseAnimation: {
-                        duration: 750,
-                        easing: 'easeOutExpo'
-                    }
-                },
-                shine: {
-                    translation: {
-                        x: 100,
-                        y: 100,
-                        z: 0
-                    },
-                    reverseAnimation: {
-                        duration: 750,
-                        easing: 'easeOutExpo'
-                    }
-                }
-            }
-        }
         ];
 
         plugins.tilter.each(function (pos, el) {
@@ -1862,13 +1862,13 @@ $document.ready(function () {
                             formHasCaptcha = true;
 
                             $.ajax({
-                                method: "POST",
-                                url: "bat/reCaptcha.php",
-                                data: {
-                                    'g-recaptcha-response': captchaToken
-                                },
-                                async: false
-                            })
+                                    method: "POST",
+                                    url: "bat/reCaptcha.php",
+                                    data: {
+                                        'g-recaptcha-response': captchaToken
+                                    },
+                                    async: false
+                                })
                                 .done(function (responceCode) {
                                     if (responceCode != 'CPT000') {
                                         if (output.hasClass("snackbars")) {
@@ -2288,12 +2288,35 @@ $document.ready(function () {
     for (let i = 0; i < wigTextures.length; i++) {
         wigTextures[i].onchange = function (event) {
             let texture = $('.product-texture');
-            let url = location.href.lastIndexOf('/');
-            console.log(url);
+            /* let url = location.href.lastIndexOf('/');
+            console.log(url); */
 
             for (let j = i; j < texture.length; j++) {
                 if (i === j) {
                     texture[j].textContent = event.target.value;
+                    let productImage = $('#product-image').attr('src');
+                    let chopped = productImage.split('/');
+                    let modifiedSrc = chopped.slice(0, -1).toString().replace(/,/g, '/');
+                    let cat = $("#cat").text().trim();
+                    // let category = cat;
+                    // console.log(category);
+
+                    let text = event.target.value.replace(/ /g, '-');
+                    let lower = cat + "-" + text;
+                    let stripped = lower.replace(/  /g, '');
+                    let fullProductName = stripped.toLowerCase() + ".jpg";
+                    $('#product-image').attr('src', modifiedSrc + '/' + fullProductName);
+                    // #product-nameS
+                    // console.log(cat);
+                    // console.log(modifiedSrc + '/' + fullProductName);
+                    // console.log(cat.replace(/ /g, ('')).toLowerCase());
+                    // console.log(texture[j].text());
+                    // console.log(fullProductName);
+
+                    // .replace(/ /g, ('-'))
+                    // .replace(/ /g, ('-'))
+
+
                 }
             }
         }
@@ -2321,6 +2344,9 @@ $document.ready(function () {
 
         }
     }
+
+    /* const productImage = $('#product-image').attr('src');
+    console.log(productImage); */
 
 
     /*  function getPriceById(length_id) {
