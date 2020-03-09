@@ -28,7 +28,7 @@ class WigsController extends Controller
         $products = Product::with(
             [
                 'image' => function ($query) {
-                    $query->where('name', 'like', '%body%');
+                    $query->where('url', 'like', '%body%');
                 },
                 'price' => function ($query) {
                     $query->min('price');
