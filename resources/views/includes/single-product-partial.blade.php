@@ -7,8 +7,20 @@
                     {{-- @foreach ($product->images as $product_image) --}}
                     {{-- @if ($loop->first) --}}
                     {{-- <div> --}}
-                    <img id="product-image" class="img-responsive product-image-area"
-                        src="{{asset('images/products/'.$product->image->imagePath())}}.jpg" alt="" />
+                    {{-- @if ($product->image["url"] != null )
+                        src="
+                        {{asset('images/products/'.$product->image["url"])}}.jpg" alt=""
+                    @else
+                    src="https://via.placeholder.com/294" alt=""
+                    @endif --}}
+
+                    <img id="product-image" class="img-responsive product-image-area" @if ($product->image != null )
+                    src="{{asset('images/products/'.$product->image->imagePath())}}.jpg" alt=""
+                    @else
+                    src="https://via.placeholder.com/294" alt=""
+                    @endif
+                    onerror='this.src="https://via.placeholder.com/294"'
+                    />
                     {{-- </div> --}}
                     {{-- @endif --}}
                     {{-- @endforeach --}}

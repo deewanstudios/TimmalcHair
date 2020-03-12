@@ -11,7 +11,8 @@
           <!-- Product Image-->
           <div class="product-image">
             <a href="{{ 'wigs/'.$product->category->path().'/'.$product->texture->texturePath() }}">
-              <img class="img-responsive product-image-area" @if ($product->image["url"] != null )
+              <img class="img-responsive product-image-area"
+              @if ($product->image["url"] != null )
               src="
               {{asset('images/products/'.$product->image["url"])}}.jpg" alt=""
               @else
