@@ -2422,5 +2422,14 @@ $document.ready(function () {
  */
     // console.log(location.href.split('/'));
 
+    // add item to category
+
+    $('#add-to-cart').on('click', function () {
+
+        console.log('Add to cart button clicked');
+
+    });
+
+
 
 });

@@ -117,8 +117,9 @@
 
                     <!-- Product Add To cart-->
                     <div>
-                        <a class="btn btn-sm btn-primary btn-icon btn-icon-left product-btn offset-top-20 offset-xs-top-0"
-                            href="shop-cart.html"><span class="icon mdi mdi-cart-outline"></span>Add to Cart</a>
+                        <button id="add-to-cart"
+                            class="btn btn-sm btn-primary btn-icon btn-icon-left offset-top-20 offset-xs-top-0"><span
+                                class="icon mdi mdi-cart-outline"></span>Add to Cart</button>
                     </div>
                 </div>
             </div>
